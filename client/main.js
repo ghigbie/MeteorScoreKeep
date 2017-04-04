@@ -1,5 +1,5 @@
 //import "./../imports/utils";
-import someDefault, {greetUser, name} from "./../imports/utils";
+import someDefault, {greetUser, name} from "./../imports/utils"; //this line imports named and default functions
 import {add} from "./../imports/math";
 
 console.log("Log from /client/main.js");
