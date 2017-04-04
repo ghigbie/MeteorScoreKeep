@@ -1,9 +1,9 @@
-//import "./../imports/utils";
-import someDefault, {greetUser, name} from "./../imports/utils"; //this line imports named and default functions
-import {add} from "./../imports/math";
+import React from "react"; //to import from  an npm module all you need to do specifiy the module name
+import ReactDOM from "react-dom";
+import {Meteor} from "meteor/meteor"; //meteor imports are imported with "metoer/[*** some meteor module name ****]"
 
-console.log("Log from /client/main.js");
-console.log(greetUser());
-console.log(name);
-console.log(add(7+7));
-console.log(someDefault);
+Meteor.startup( () => {
+	let name = "Mike";
+	let jsx = <p>Hello {name}!</p>;
+	ReactDOM.render(jsx, document.getElementById("app"));
+});
