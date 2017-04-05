@@ -14,11 +14,19 @@ const players = [{
 	_id: 3,
 	name: "Mike",
 	score: -50
+},{
+	_id: 4,
+	name: "Mihaus",
+	score: 1
 }];
 
 const renderPlayers = (players) => {
 	return players.map((player) => {
-		return <p key={player._id}>{player.name} has {player.score} points.</p>;
+		let points = "points";
+		if(player.score === 1){
+			points = "point"
+		}
+		return <p key={player._id}>{player.name} has {player.score} {points}.</p>;
 	});
 }
 
