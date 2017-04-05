@@ -4,20 +4,24 @@ import {Meteor} from "meteor/meteor"; //meteor imports are imported with "metoer
 
 const players = [{
 	_id: 1,
-	name: Lauren,
+	name: "Lauren",
 	score: 99
 },{
 	_id: 2,
-	name: Cody,
+	name: "Cody",
 	score: -1
 }, {
 	_id: 3,
-	name: Mike,
+	name: "Mike",
 	score: -50
 }];
 
-const renderPlayers = () => {
-	return [<p key="1">1</p>, <p key="2">2</p>, <p key="3">3</p> ];
+const renderPlayers = (players) => {
+	let playersRender = players;
+
+	return playersRender.map((player) => {
+		return <p key={player._id}>{player.name}</p>;
+	});
 }
 
 Meteor.startup( () => {
@@ -28,7 +32,7 @@ Meteor.startup( () => {
 			<h1>{title}</h1>
 			<p>Hello {name}!</p>
 			<p>Lorem ipsum dolor sit amet</p>
-			{rederPlayers()}
+			{renderPlayers(players)}
 		</div>
 	);
 	ReactDOM.render(jsx, document.getElementById('app'));
