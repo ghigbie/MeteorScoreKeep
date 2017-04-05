@@ -16,6 +16,10 @@ const players = [{
 	score: -50
 }];
 
+const renderPlayers = () => {
+	return [<p key="1">1</p>, <p key="2">2</p>, <p key="3">3</p> ];
+}
+
 Meteor.startup( () => {
 	let title = "Score Keep";
 	let name = "Mike";
@@ -24,6 +28,7 @@ Meteor.startup( () => {
 			<h1>{title}</h1>
 			<p>Hello {name}!</p>
 			<p>Lorem ipsum dolor sit amet</p>
+			{rederPlayers()}
 		</div>
 	);
 	ReactDOM.render(jsx, document.getElementById('app'));
