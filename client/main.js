@@ -17,10 +17,8 @@ const players = [{
 }];
 
 const renderPlayers = (players) => {
-	let playersRender = players;
-
-	return playersRender.map((player) => {
-		return <p key={player._id}>{player.name}</p>;
+	return players.map((player) => {
+		return <p key={player._id}>{player.name} has {player.score} points.</p>;
 	});
 }
 
