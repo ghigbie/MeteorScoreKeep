@@ -29,4 +29,9 @@ Meteor.startup( () => {
 		);
 		ReactDOM.render(jsx, document.getElementById('app'));
 	});
+	Players.insert({
+		name: "Bobby",
+		score: 75
+	});
+
 });
