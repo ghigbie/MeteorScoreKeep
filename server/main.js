@@ -1,8 +1,10 @@
-// import "./../imports/utils";
-import {greetUser} from "./../imports/utils";
-import add from "./../imports/math";
+import {Meteor} from "meteor/meteor";
+import {Players} from "./../imports/api/players.js";
 
-
-console.log("Log from /server/main.js");
-console.log(greetUser());
-console.log(add(7,7));
+Meteor.startup( () => {
+    Players.insert({
+        name: "George",
+        score: 3
+    });
+    console.log(Players.find().fetch());
+});
