@@ -6,5 +6,11 @@ Meteor.startup( () => {
     //     name: "Joe",
     //     score: 17
     // });
-    console.log(Players.find().fetch());
-});
+    // console.log(Players.find().fetch());
+
+    let numbers = [9, 99, 4, 56];
+    let newNumbers = () => {
+        console.log(numbers[1]);
+    }
+    newNumbers();
+}
