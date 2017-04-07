@@ -14,6 +14,20 @@ const renderPlayers = (players) => {
 	});
 }
 
+const handleSubmit = (e) => {
+	console.log("handleSubmit called");
+	let playerName = e.target.playerName.value;
+	e.preventDefault(); //this stops full page refresh when submit is called
+	if(playerName){
+		e.target.playerName.value = "";//this clears the input
+		Players.insert({
+			name: playerName,
+			score: 0
+		});
+		console.log(playerName);
+	}
+};
+
 Meteor.startup( () => {
 	Tracker.autorun(() => {
 		let players = Players.find().fetch();
@@ -25,13 +39,12 @@ Meteor.startup( () => {
 				<p>Hello {name}!</p>
 				<p>Lorem ipsum dolor sit amet</p>
 				{renderPlayers(players)}
+				<form onSubmit={handleSubmit}>
+					<input type="text" name="playerName" placeholder="Player Name"/>
+					<button>Add Player</button>
+				</form>
 			</div>
 		);
-		ReactDOM.render(jsx, document.getElementById('app'));
+		ReactDOM.render(jsx, document.getElementById("app"));
 	});
-	Players.insert({
-		name: "Bobby",
-		score: 75
-	});
-
 });
